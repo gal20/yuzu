@@ -65,7 +65,7 @@ cat > /tmp/org.yuzu.$REPO_NAME.json <<EOF
     "runtime": "org.kde.Sdk",
     "runtime-version": "5.13",
     "sdk": "org.kde.Sdk",
-    "command": "yuzu",
+    "command": "yuzu-wrapper",
     "rename-desktop-file": "yuzu.desktop",
     "rename-icon": "yuzu",
     "rename-appdata-file": "org.yuzu.$REPO_NAME.appdata.xml",
@@ -80,7 +80,7 @@ cat > /tmp/org.yuzu.$REPO_NAME.json <<EOF
             "AZURE_COMMIT": "$AZURE_COMMIT",
             "AZURE_JOB_ID": "$AZURE_JOB_ID",
             "AZURE_REPO_SLUG": "$AZURE_REPO_SLUG",
-            "AZURE_TAG": "$AZURE_TAG"
+            "AZURE_TAG": "$AZURE_TAG",
             /* Required for conan to work properly */
             "HOME": "/run/build/yuzu"
         }
