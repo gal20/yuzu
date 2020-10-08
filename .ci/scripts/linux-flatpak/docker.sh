@@ -37,6 +37,13 @@ GPG_KEY="/tmp/gpg.key"
 #chown -R yuzu "$YUZU_SRC_DIR"
 #chmod -R 700 "$YUZU_SRC_DIR"
 
+id
+ls -al
+ls / -al
+ls /yuzu -al
+ls . -al
+env
+
 # Mount our flatpak repository
 # -o reconnect and -o ServerAliveInterval ensure that 
 # the share stays active during long flatpak builds
