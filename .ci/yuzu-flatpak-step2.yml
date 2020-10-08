@@ -20,7 +20,8 @@ stages:
   jobs:
   - job: build
     displayName: 'standard'
-    pool: 'Default'
+    pool:
+      vmImage: ubuntu-latest
     strategy:
       maxParallel: 10
       matrix:
