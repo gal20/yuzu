@@ -3,12 +3,9 @@
 # Converts "yuzu-emu/yuzu-release" to "yuzu-release"
 REPO_NAME=$(echo $AZURE_REPO_SLUG | cut -d'/' -f 2)
 YUZU_SRC_DIR="/yuzu"
-#BUILD_DIR="$YUZU_SRC_DIR/build"
-#REPO_DIR="$YUZU_SRC_DIR/repo"
-#STATE_DIR="$YUZU_SRC_DIR/.flatpak-builder"
-BUILD_DIR="$HOME/build"
-REPO_DIR="$HOME/repo"
-STATE_DIR="$HOME/.flatpak-builder"
+BUILD_DIR="$YUZU_SRC_DIR/build"
+REPO_DIR="$YUZU_SRC_DIR/repo"
+STATE_DIR="$YUZU_SRC_DIR/.flatpak-builder"
 KEYS_ARCHIVE="/tmp/keys.tar"
 SSH_DIR="/upload"
 SSH_KEY="/tmp/ssh.key"
@@ -36,9 +33,6 @@ GPG_KEY="/tmp/gpg.key"
 # Set permissions
 #chown -R yuzu "$YUZU_SRC_DIR"
 #chmod -R 700 "$YUZU_SRC_DIR"
-
-ls $HOME -al
-find $HOME -depth
 
 # Mount our flatpak repository
 # -o reconnect and -o ServerAliveInterval ensure that 
