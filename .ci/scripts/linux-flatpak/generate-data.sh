@@ -169,7 +169,7 @@ cat > /tmp/org.yuzu.$REPO_NAME.json <<EOF
             "name": "python3-conan",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"conan\""
+                "pip3 install --exists-action=i --no-index --find-links=\"file:///run/build/python3-conan\" --prefix=/app \"conan\""
             ],
             "sources": [
                 {
