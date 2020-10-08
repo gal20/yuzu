@@ -8,11 +8,13 @@ steps:
   inputs:
     dockerVersion: '17.09.0-ce'
 - task: CacheBeta@0
+  condition: eq('0', '1')
   displayName: 'Cache Build System'
   inputs:
     key: yuzu-v1-$(BuildName)-$(BuildSuffix)-$(CacheSuffix)
     path: $(System.DefaultWorkingDirectory)/ccache
     cacheHitVar: CACHE_RESTORED
+  
 - script: chmod a+x ./.ci/scripts/$(ScriptFolder)/exec.sh && ./.ci/scripts/$(ScriptFolder)/exec.sh ${{ parameters['version'] }}
   displayName: 'Build'
   env:
