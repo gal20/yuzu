@@ -107,8 +107,8 @@ cat > /tmp/org.yuzu.$REPO_NAME.json <<EOF
         "--filesystem=xdg-run/discord-ipc-9:rw"
     ],
     "cleanup-commands": [
-        "find ${FLATPAK_DEST}/bin ! -name 'yuzu*' -mindepth 1 -delete",
-        "rm -r ${FLATPAK_DEST}/lib/*python*"
+        "find /app/bin ! -name 'yuzu*' -mindepth 1 -delete",
+        "rm -r /app/lib/*python*"
     ],
     "modules": [
         /* Flathub shared module */
@@ -132,7 +132,7 @@ cat > /tmp/org.yuzu.$REPO_NAME.json <<EOF
             ],
             "post-install": [
                 /* Theres seem to be a permissions missmatch that causes the debug stripping to fail */
-                "chmod 644 $FLATPAK_DEST/lib/libpython2.7.so.1.0"
+                "chmod 644 /app/lib/libpython2.7.so.1.0"
             ],
             "cleanup": [
                 "/bin/2to3*",
@@ -169,7 +169,7 @@ cat > /tmp/org.yuzu.$REPO_NAME.json <<EOF
             "name": "python3-conan",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"conan\""
+                "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"conan\""
             ],
             "sources": [
                 {
