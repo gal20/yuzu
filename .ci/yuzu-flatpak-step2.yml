@@ -35,5 +35,5 @@ stages:
         needSubmodules: 'true'   
     - template: ./templates/build-flatpak-single.yml
       parameters:
-        cache: 'false'
+        cache: 'true'
         version: $(DisplayVersion)
