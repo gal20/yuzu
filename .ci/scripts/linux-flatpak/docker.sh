@@ -41,12 +41,12 @@ mkdir -p "$REPO_DIR"
 #sshfs "$FLATPAK_SSH_USER@$FLATPAK_SSH_HOSTNAME:$SSH_DIR" "$REPO_DIR" -C -p "$FLATPAK_SSH_PORT" -o IdentityFile="$SSH_KEY" -o ServerAliveInterval=60 -o "reconnect" -o auto_cache -o no_readahead
 
 # setup ccache location
-chown -R yuzu "$HOME/.ccache"
-chmod -R 700 "$HOME/.ccache"
+chown -R yuzu "$HOME/ccache"
+chmod -R 700 "$HOME/ccache"
 mkdir -p "$STATE_DIR"
 chown -R yuzu "$STATE_DIR"
 chmod -R 700 "$STATE_DIR"
-ln -sv --force $HOME/.ccache "$STATE_DIR/ccache"
+ln -sv --force $HOME/ccache "$STATE_DIR/ccache"
 
 # Set ccache permissions
 chmod -R 700 "$STATE_DIR/ccache"
