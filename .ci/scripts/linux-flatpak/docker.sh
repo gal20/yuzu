@@ -7,6 +7,8 @@ BUILD_DIR="$YUZU_SRC_DIR/build"
 REPO_DIR="$YUZU_SRC_DIR/repo"
 STATE_DIR="$YUZU_SRC_DIR/.flatpak-builder"
 SSH_DIR="/upload"
+SSH_KEY=/tmp/ssh.key
+GPG_KEY=/tmp/gpg.key
 
 # Generate flatpak Manifest and AppData files (/tmp/appdata.xml and /tmp/org.yuzu.$REPO_NAME.json)
 /bin/bash -ex $YUZU_SRC_DIR/.ci/scripts/linux-flatpak/generate-data.sh $1
