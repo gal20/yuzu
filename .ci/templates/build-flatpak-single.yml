@@ -13,6 +13,14 @@ steps:
     key: yuzu-v1-$(BuildName)-$(BuildSuffix)-$(CacheSuffix)
     path: $(System.DefaultWorkingDirectory)/ccache
     cacheHitVar: CACHE_RESTORED 
+- task: DownloadSecureFile@1
+  name: sshKey
+  inputs:
+    secureFile: 'ssh.key'
+- task: DownloadSecureFile@1
+  name: gpgKey
+  inputs:
+    secureFile: 'gpg.key'
 - script: chmod a+x ./.ci/scripts/$(ScriptFolder)/exec.sh && ./.ci/scripts/$(ScriptFolder)/exec.sh ${{ parameters['version'] }}
   displayName: 'Build'
   env:
