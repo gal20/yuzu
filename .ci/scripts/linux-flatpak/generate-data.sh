@@ -82,7 +82,7 @@ cat > /tmp/org.yuzu.$REPO_NAME.json <<EOF
             "AZURE_REPO_SLUG": "$AZURE_REPO_SLUG",
             "AZURE_TAG": "$AZURE_TAG",
             /* Required for conan to work properly */
-            "HOME": "/run/build/yuzu"
+            "CONAN_USER_HOME": "/run/build/yuzu"
         }
     },
     "finish-args": [
