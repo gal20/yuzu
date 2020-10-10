@@ -48,7 +48,6 @@ chown -R yuzu "$STATE_DIR"
 chmod -R 700 "$STATE_DIR"
 ln -sv --force $HOME/ccache "$STATE_DIR/ccache"
 
-
 # Set ccache permissions
 chmod -R 700 "$STATE_DIR/ccache"
 
