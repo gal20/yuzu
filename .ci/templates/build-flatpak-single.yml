@@ -8,7 +8,6 @@ steps:
   inputs:
     dockerVersion: '17.09.0-ce'
 - task: CacheBeta@0
-  condition: eq('0', '1')
   displayName: 'Cache Build System'
   inputs:
     key: yuzu-v1-$(BuildName)-$(BuildSuffix)-$(CacheSuffix)
