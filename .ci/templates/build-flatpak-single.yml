@@ -1,8 +1,6 @@
 parameters:
   cache: 'false'
   version: ''
-variables:
-  - group: flatpak-variables
 
 steps:
 - task: DockerInstaller@0
