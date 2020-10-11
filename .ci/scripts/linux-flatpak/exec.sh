@@ -1,6 +1,7 @@
 #!/bin/bash -ex
 mkdir -p "ccache"
 mkdir -p "$HOME/.ssh"
+mkdir -p "$HOME/.gnupg"
 
 chmod a+x ./.ci/scripts/linux-flatpak/docker.sh
 
@@ -8,7 +9,9 @@ chmod a+x ./.ci/scripts/linux-flatpak/docker.sh
 sudo chown -R 1027 "ccache"
 sudo chown -R 1027 $(pwd)
 sudo chown -R 1027 "$HOME/.ssh"
-docker run --env-file .ci/scripts/linux-flatpak/azure-ci.env --env-file .ci/scripts/linux-flatpak/azure-ci-flatpak.env -v $(pwd):/yuzu -v "$(pwd)/ccache":/home/yuzu/ccache -v "$HOME/.ssh":/home/yuzu/.ssh -v "$SSH_KEY":/tmp/ssh.key -v "$GPG_KEY":/tmp/gpg.key --privileged meirod/build-environments:linux-flatpak /bin/bash -ex /yuzu/.ci/scripts/linux-flatpak/docker.sh $1
+sudo chown -R 1027 "$HOME/.gnupg"
+docker run --env-file .ci/scripts/linux-flatpak/azure-ci.env --env-file .ci/scripts/linux-flatpak/azure-ci-flatpak.env -v $(pwd):/yuzu -v "$(pwd)/ccache":/home/yuzu/ccache -v "$HOME/.ssh":/home/yuzu/.ssh -v "$HOME/.gnupg":/home/yuzu/.gnupg -v "$SSH_KEY":/tmp/ssh.key -v "$GPG_KEY":/tmp/gpg.key --privileged meirod/build-environments:linux-flatpak /bin/bash -ex /yuzu/.ci/scripts/linux-flatpak/docker.sh $1
+sudo chown -R $UID "$HOME/.gnupg"
 sudo chown -R $UID "$HOME/.ssh"
 sudo chown -R $UID "ccache"
 sudo chown -R $UID $(pwd)
