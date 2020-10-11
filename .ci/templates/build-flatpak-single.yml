@@ -24,8 +24,6 @@ steps:
 - script: chmod a+x ./.ci/scripts/$(ScriptFolder)/exec.sh && ./.ci/scripts/$(ScriptFolder)/exec.sh ${{ parameters['version'] }}
   displayName: 'Build'
   env:
-    SSH_KEY: $(sshKey.secureFilePath)
-    GPG_KEY: $(gpgKey.secureFilePath)
     FLATPAK_GPG_PUBLIC_KEY: $(FLATPAK_GPG_PUBLIC_KEY)
     FLATPAK_SSH_HOSTNAME: $(FLATPAK_SSH_HOSTNAME)
     FLATPAK_SSH_PORT: $(FLATPAK_SSH_PORT)
@@ -38,6 +36,8 @@ steps:
     AZURE_JOB_ID: $(System.JobId)
     AZURE_REPO_SLUG: $(Build.Repository.Name)
     AZURE_TAG: $(Build.SourceBranch)
+    SSH_KEY: $(sshKey.secureFilePath)
+    GPG_KEY: $(gpgKey.secureFilePath)
 - script: chmod a+x ./.ci/scripts/$(ScriptFolder)/finish.sh && ./.ci/scripts/$(ScriptFolder)/finish.sh
   condition: always()
   displayName: 'Clean up'
